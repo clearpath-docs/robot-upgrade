@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>robot_upgrade</name>
+  <version>0.0.1</version>
+  <description>Upgrading from ROS Kinetic to Melodic</description>
+  <maintainer email="civerachb@clearpathrobotics.com">Chris Iverach-Brereton</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://clearpathrobotics.com</url>
+  <author email="civerachb@clearpathrobotics.com">Chris Iverach-Brereton</author>
+
+  <export>
+  </export>
+</package>
