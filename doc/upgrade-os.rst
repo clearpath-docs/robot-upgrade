@@ -15,7 +15,7 @@ Download the ISO for your robot
 ---------------------------------
 
 Clearpath Robotics has customized OS installation images for all of our robots available online:
-http://packages.clearpathrobotics.com/stable/images/latest/_
+http://packages.clearpathrobotics.com/stable/images/latest/
 
 Open the link and download the ISO appropriate to your robot.  The ISO will be found in the ``melodic-<your robot>/amd64``
 folder.
