@@ -20,7 +20,7 @@ extlinks = {
 source_suffix = '.rst'
 master_doc = 'index'
 
-project = u'Upgrading from Kinetic to Melodic'
+project = u'Upgrading from Melodic to Noetic'
 copyright = u'2020, Clearpath Robotics'
 
 # Get version number from package.xml.

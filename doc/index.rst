@@ -1,4 +1,4 @@
-Upgrading from Kinetic to Melodic
+Upgrading from Melodic to Noetic
 ====================================
 
 In early 2020 Clearpath Robotics added support for ROS Melodic running on Ubuntu 18.04 to our line of robots.  New

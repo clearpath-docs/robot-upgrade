@@ -2,7 +2,7 @@ Backing up your robot's data
 ===============================
 
 It is always a good idea to keep any customized configuration files or project source code backed up.  This is
-especially true when upgrading your robot from ROS Kinetic to Melodic, as this process will wipe the robot's
+especially true when upgrading your robot from ROS Melodic to Noetic, as this process will wipe the robot's
 internal storage.
 
 Backup script
@@ -33,9 +33,9 @@ For example, if your robot's IP address is 192.168.1.103, you would run somethin
 
 .. code-block:: bash
 
-    bash backup.sh kinetic-final-backup 192.168.1.103
+    bash backup.sh melodic-final-backup 192.168.1.103
 
-This will produce a backup file called ``kinetic-final-backup.tar.gz``.  Keep this file for when you need to
+This will produce a backup file called ``melodic-final-backup.tar.gz``.  Keep this file for when you need to
 restore your backed-up data.
 
 By default all Clearpath robots use the username "administrator" and the password "clearpath".  The ``backup.sh`` script
@@ -46,7 +46,7 @@ For example, if your robot has been modified to use an Nvidia Jetston TX2, the u
 
 .. code-block:: bash
 
-  bash backup.sh kinetic-final-backup nvidia@192.168.1.103 nvidia
+  bash backup.sh melodic-final-backup nvidia@192.168.1.103 nvidia
 
 
 What gets backed up
@@ -58,7 +58,7 @@ The backup script will copy the following data:
 * specified user's groups
 * udev rules: ``/etc/udev/rules.d/*``
 * networking configuration:  ``/etc/network/interfaces``, ``/etc/hostname``, ``/etc/hosts``, ``/etc/iptables``
-* ROS bringup: ``/etc/ros/setup.bash``, ``/etc/ros/kinetic/ros.d/*``, ``/usr/sbin/*start``, ``/usr/sbin/*stop``
+* ROS bringup: ``/etc/ros/setup.bash``, ``/etc/ros/melodic/ros.d/*``, ``/usr/sbin/*start``, ``/usr/sbin/*stop``
 * rosdep sources: ``/etc/ros/rosdep/*``
 * rclocal: ``/etc/rc.local``
 * systemd settings: ``/etc/systemd/system``
@@ -71,7 +71,7 @@ Backing up non-standard installations
 ---------------------------------------
 
 The ``backup.sh`` script assumes that your robot is in a roughly-standard configuration; it uses a single user account
-and no files within ``/opt/ros/kinetic`` have been modified.
+and no files within ``/opt/ros/melodic`` have been modified.
 
 If this is `not` the case, it is the responsibility of the user to ensure that any modified files and files in other
 users' home folders is backed up correctly.

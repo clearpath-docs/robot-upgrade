@@ -2,8 +2,9 @@
 <package>
   <name>robot_upgrade</name>
   <version>0.0.1</version>
-  <description>Upgrading from ROS Kinetic to Melodic</description>
+  <description>Upgrading from ROS Melodic to Noetic</description>
   <maintainer email="civerachb@clearpathrobotics.com">Chris Iverach-Brereton</maintainer>
+  <maintainer email="jyang@clearpathrobotics.com">Joey Yang</maintainer>
 
   <license>BSD</license>
 

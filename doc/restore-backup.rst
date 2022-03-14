@@ -11,10 +11,10 @@ Log into the robot and run
 
     bash upgrade.sh <backup-name>
 
-For example, if your backup file is called ``kinetic-final-backup.tar.gz`` you would run
-``bash upgrade.sh kinetic-final-backup``
+For example, if your backup file is called ``melodic-final-backup.tar.gz`` you would run
+``bash upgrade.sh melodic-final-backup``
 
-The ``upgrade.sh`` script will install the ROS Melodic versions of any ROS Kinetic packages as well as doing an
+The ``upgrade.sh`` script will install the ROS Melodic versions of any ROS Melodic packages as well as doing an
 in-place upgrade of configuration files (e.g. ``.bashrc`` and ``/etc/ros/setup.bash``).
 
 The script will prompt you whether or not you want to (re-)install Apt and Pip packages.  If you select "no" then
@@ -33,7 +33,7 @@ been removed or renamed between 16.04 and 18.04.
 Restoring non-standard data
 -------------------------------
 
-If you manually backed up any additional files from your Kinetic robot, you can restore those files at this point.
+If you manually backed up any additional files from your Melodic robot, you can restore those files at this point.
 Simply copy the old files to their appropriate locations on the robot.
 
 If you created additional user accounts on the robot you can re-create those with the ``adduser`` command.
