@@ -22,6 +22,17 @@ The script will prompt you whether or not you want to (re-)install Apt and Pip p
 
 If ``upgrade.sh`` encounters errors installing any Apt or Pip packages it will create ``$HOME/could_not_install_apt.sh`` and/or ``$HOME/could_not_install_pip.sh`` files as appropriate.  Some failures are normal, as Ubuntu packages may have been removed or renamed between 18.04 and 20.04.
 
+Restoring Network configuration
+--------------------------------
+
+Robots running Ubuntu 20.04 and ROS Noetic use a software called ``netplan`` to configure networking. Any ``netplan`` network configuration files are located in ``/etc/netplan``. Robots running Ubuntu 18.04 and ROS Melodic should also be like this.
+
+However, some robots running Ubuntu 18.04 **may** use the ``/etc/network/interfaces`` file to configure networking instead of using ``/etc/netplan``. If this is the case, using the ``upgrade.sh`` script will create a problem on the robot, where the restored ``/etc/network/interfaces`` file will conflict with the expected networking configurations files in ``/etc/netplan``.
+
+The solution is to delete the ``/etc/network/interfaces`` file from your upgraded Ubuntu 20.04 robot, and create a ``.yaml`` file in ``/etc/netplan`` that implements the same networking configuration details.
+
+It is ultimately up to you to verify if your Ubuntu 18.04 robot is using ``/etc/network/interfaces`` or ``/etc/netplan``. If the former, it is up to you to port your networking configuration to ``netplan`` after upgrading to Ubuntu 20.04.
+
 Restoring Non-Standard Data
 ----------------------------
 

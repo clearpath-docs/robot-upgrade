@@ -45,25 +45,25 @@ What Gets Backed Up
 
 The backup script will copy the following data:
 
-- Home Folder: ```~/```
-- ```udev``` Rules: ```/etc/udev/rules.d```
+- Home Folder: ``~/``
+- ``udev`` Rules: ``/etc/udev/rules.d``
 - Network Setup:
-  - ```/etc/network/interfaces```
-  - ```/etc/netplan```
-  - ```/etc/hostname```
-  - ```/etc/hosts```
-- IP Tables: ```/etc/iptables```
+  - ``/etc/network/interfaces``
+  - ``/etc/netplan``
+  - ``/etc/hostname``
+  - ``/etc/hosts``
+- IP Tables: ``/etc/iptables``
 - Bringup Files:
-  - ```/etc/ros/setup.bash```
-  - ```/etc/ros/$ROSDISTRO/ros.d```
-  - ```/usr/sbin/*start```
-  - ```/usr/sbin/*stop```
-- ```rosdep``` sources: ```/etc/ros/rosdep```
-- ```rc.local``` File: ```/etc/rc.local```
-- ```pip``` packages
-- ```systemd``` configuration: ```/etc/systemd/system```
-- ```apt``` sources: ```/etc/apt/sources.list.d```
-- ```apt``` packages
+  - ``/etc/ros/setup.bash``
+  - ``/etc/ros/$ROSDISTRO/ros.d``
+  - ``/usr/sbin/*start``
+  - ``/usr/sbin/*stop``
+- ``rosdep`` sources: ``/etc/ros/rosdep``
+- ``rc.local`` File: ``/etc/rc.local``
+- ``pip`` packages
+- ``systemd`` configuration: ``/etc/systemd/system``
+- ``apt`` sources: ``/etc/apt/sources.list.d``
+- ``apt`` packages
 - User Permission Groups
 
 Backing Up Non-Standard Data
@@ -71,6 +71,6 @@ Backing Up Non-Standard Data
 
 The ``backup.sh`` script assumes that your robot is in a roughly-standard configuration; it uses a single user account and no files within ``/opt/ros/melodic`` have been modified.
 
-If this is `not` the case, it is the responsibility of the user to ensure that any modified files and files in other users' home folders is backed up correctly.
+If this is **not** the case, it is the responsibility of the user to ensure that any modified files and files in other users' home folders is backed up correctly.
 
 A common example of this might be if you have created customized URDF files to be loaded via environment variables (e.g. ``JACKAL_URDF_EXTRAS``) and have stored them outside any of the folders specified above, you must back these up yourself; ``backup.sh`` will not do this for you.
