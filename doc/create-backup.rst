@@ -1,15 +1,12 @@
-Backing up your robot's data
-===============================
+Backing Up Your Robot's Data
+=============================
 
-It is always a good idea to keep any customized configuration files or project source code backed up.  This is
-especially true when upgrading your robot from ROS Melodic to Noetic, as this process will wipe the robot's
-internal storage.
+It is always a good idea to keep any customized configuration files or project source code backed up. This is especially true when upgrading your robot from ROS Melodic to ROS Noetic, as this process will wipe the robot's internal storage.
 
-Backup script
------------------
+Download the Backup Software
+-----------------------------
 
-Clearpath provides a simple shell script you can use to create a backup of most of your robot's important data.  You
-can download a copy of this script by running the following command on your computer:
+Clearpath Robotics provides a package containing several shell scripts to help you back up, upgrade, and/or restore your robot's most important data. You can download a copy of this script by running the following command on your computer:
 
 .. code-block:: bash
 
@@ -17,12 +14,10 @@ can download a copy of this script by running the following command on your comp
 
 Follow the instructions in the ``robot-backup/README.md`` file to ensure you have all of the prerequisites installed.
 
+Running the Backup Script
+--------------------------
 
-Running the backup
------------------------
-
-Ensure that the robot is turned on and that you can SSH into it from your computer.  Then run the following from
-your computer:
+Ensure that the robot is turned on and that you can SSH into it from your computer. Then run the following from your computer:
 
 .. code-block:: bash
 
@@ -35,47 +30,47 @@ For example, if your robot's IP address is 192.168.1.103, you would run somethin
 
     bash backup.sh melodic-final-backup 192.168.1.103
 
-This will produce a backup file called ``melodic-final-backup.tar.gz``.  Keep this file for when you need to
-restore your backed-up data.
+This will produce a backup file called ``melodic-final-backup.tar.gz``. Keep this file for when you need to restore your backed-up data.
 
-By default all Clearpath robots use the username "administrator" and the password "clearpath".  The ``backup.sh`` script
-will use these credentials by default, but you can override them easily.
+By default all Clearpath robots use the username "administrator" and the password "clearpath".  The ``backup.sh`` script will use these credentials by default, but you can override them easily.
 
-For example, if your robot has been modified to use an Nvidia Jetston TX2, the username and password will both be
-"nvidia".  In this case, you should run
+For example, if your robot has been modified to use an Nvidia Jetston TX2, the username and password will both be "nvidia". In this case, you should run
 
 .. code-block:: bash
 
   bash backup.sh melodic-final-backup nvidia@192.168.1.103 nvidia
 
-
-What gets backed up
-------------------------
+What Gets Backed Up
+--------------------
 
 The backup script will copy the following data:
 
-* the contents of the user's home folder: ``/home/administrator`` by default
-* specified user's groups
-* udev rules: ``/etc/udev/rules.d/*``
-* networking configuration:  ``/etc/network/interfaces``, ``/etc/hostname``, ``/etc/hosts``, ``/etc/iptables``
-* ROS bringup: ``/etc/ros/setup.bash``, ``/etc/ros/melodic/ros.d/*``, ``/usr/sbin/*start``, ``/usr/sbin/*stop``
-* rosdep sources: ``/etc/ros/rosdep/*``
-* rclocal: ``/etc/rc.local``
-* systemd settings: ``/etc/systemd/system``
-* apt sources: ``/etc/apt/sources.list.d/*``
-* manually-installed apt packages
-* pip packages
+- Home Folder: ```~/```
+- ```udev``` Rules: ```/etc/udev/rules.d```
+- Network Setup:
+  - ```/etc/network/interfaces```
+  - ```/etc/netplan```
+  - ```/etc/hostname```
+  - ```/etc/hosts```
+- IP Tables: ```/etc/iptables```
+- Bringup Files:
+  - ```/etc/ros/setup.bash```
+  - ```/etc/ros/$ROSDISTRO/ros.d```
+  - ```/usr/sbin/*start```
+  - ```/usr/sbin/*stop```
+- ```rosdep``` sources: ```/etc/ros/rosdep```
+- ```rc.local``` File: ```/etc/rc.local```
+- ```pip``` packages
+- ```systemd``` configuration: ```/etc/systemd/system```
+- ```apt``` sources: ```/etc/apt/sources.list.d```
+- ```apt``` packages
+- User Permission Groups
 
+Backing Up Non-Standard Data
+-----------------------------
 
-Backing up non-standard installations
----------------------------------------
+The ``backup.sh`` script assumes that your robot is in a roughly-standard configuration; it uses a single user account and no files within ``/opt/ros/melodic`` have been modified.
 
-The ``backup.sh`` script assumes that your robot is in a roughly-standard configuration; it uses a single user account
-and no files within ``/opt/ros/melodic`` have been modified.
+If this is `not` the case, it is the responsibility of the user to ensure that any modified files and files in other users' home folders is backed up correctly.
 
-If this is `not` the case, it is the responsibility of the user to ensure that any modified files and files in other
-users' home folders is backed up correctly.
-
-A common example of this might be if you have created customized URDF files to be loaded via environment variables
-(e.g. ``JACKAL_URDF_EXTRAS``) and have stored them outside any of the folders specified above, you must back these
-up yourself; ``backup.sh`` will not do this for you.
+A common example of this might be if you have created customized URDF files to be loaded via environment variables (e.g. ``JACKAL_URDF_EXTRAS``) and have stored them outside any of the folders specified above, you must back these up yourself; ``backup.sh`` will not do this for you.
