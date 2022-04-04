@@ -1,7 +1,9 @@
-Upgrading Your Robot's OS
-==========================
+Upgrading Your Robot OS
+========================
 
-Once you have backed up your robot's important data you can install the new version of the robot's operating system. Ubuntu provides a command-line tool for doing an in-place upgrade called ``do-release-upgrade``, but we do not recommend upgrading this way: doing an in-place upgrade can leave stale configuration files. We find it is better to do a fresh install and then restore the backed-up data you made in the previous step.
+Once you have backed up your ROS Melodic robot's important files on a separate computer, you can install Ubuntu 20.04 with ROS Noetic onto your robot's computer. 
+
+Ubuntu provides a command-line tool for doing an in-place upgrade called ``do-release-upgrade``, but we do not recommend upgrading this way: doing an in-place upgrade can leave stale configuration files. We find it is better to do a fresh install and then restore the backed-up data you made in the previous step.
 
 .. note::
 
@@ -28,20 +30,23 @@ Install the OS
 
 .. note::
 
-    The following is a general overview of how to reinstall your robot's operating system.  Specific robots may require additional steps, such as removing cover plates to access USB/ethernet/HDMI/VGA ports, etc.... Please refer to your robot's manual for specific information on how to reinstall the OS on that model of robot.
+    The following is a general overview of how to reinstall your robot's OS. Specific robots may require additional steps, such as removing cover plates to access USB/ethernet/HDMI/VGA ports, etc.... Please refer to your robot's manual for specific information on how to reinstall the OS on that model of robot.
 
 .. warning::
 
-    While it is highly unlikely, it is possible that the robot's wheels could turn while the OS is installing.
-    We recommend placing the robot on blocks and/or engaging the e-stop during the OS installation.
+    While it is highly unlikely, it is possible that the robot's wheels could turn while the OS is installing. We recommend placing the robot on blocks and/or engaging the e-stop during the OS installation.
 
-Make sure your robot is powered off and either has freshly-charged batteries installed or is connected to shore power. Connect a keyboard and monitor to the robot, and make sure it has internet access via an ethernet cable.
+Make sure your robot is powered off and either has freshly-charged batteries installed or is connected to shore power. Connect a keyboard and monitor to the robot, and make sure it has internet access by connecting an ethernet cable between the robot's computer and an internet source (e.g. router).
 
-Insert the USB drive you set up in the previous step into a USB port on the robot and power the robot on. Press F7 while the robot is booting to open the boot menu and select the USB drive to boot from.
+Insert the USB drive you set up in the previous step into a USB port on the robot and power the robot on. Depending on your robot's computer, you will need to press F1, F2, F7, F12, or DELETE while the robot is booting to open the boot menu and select the USB drive to boot from.
 
-The installer should run automatically. Step through any prompts that come up. Make sure you select the installation option corresponding to your robot, and give your robot an appropriate hostname; presumably the same hostname as before. The robot will power off automatically when the installation completes.
+After your choose to boot the computer from the USB drive, the computer will restart. The installer should then run automatically. Step through any prompts that come up. Make sure you select the installation option corresponding to your robot, and give your robot an appropriate hostname; presumably the same hostname as before. The robot will power off automatically when the installation completes.
 
-Once the robot is powered off, remove the USB drive and turn the robot back on. You are now ready to restore your backed-up data.
+.. note::
+
+    If the installation process fails during the DHCP configuration step, it is most likely because your robot does not have internet access, even if you have connected an ethernet cable between the robot's computer and an internet source (e.g. router). During the Ubuntu installation process, only one (of possibly several) ethernet ports on the robot's computer can establish internet connection, so simply switch the ethernet cable to a different port and retry the DHCP configuration step.
+
+Once the robot is powered off, remove the USB drive and turn the robot back on. You are now ready to restore your backed-up ROS Melodic data as ROS Noetic data.
 
 Upgrading Jetson
 -----------------

@@ -1,18 +1,22 @@
-Backing Up Your Robot's Data
-=============================
+Backing Up Your Robot Data
+===========================
 
-It is always a good idea to keep any customized configuration files or project source code backed up. This is especially true when upgrading your robot from ROS Melodic to ROS Noetic, as this process will wipe the robot's internal storage.
+It is always a good idea to keep any customized configuration files or project source code backed up. This is especially true when upgrading your robot's OS, as this process will wipe the robot's internal storage.
 
 Download the Backup Software
 -----------------------------
 
-Clearpath Robotics provides a package containing several shell scripts to help you back up, upgrade, and/or restore your robot's most important data. You can download a copy of this script by running the following command on your computer:
+Clearpath Robotics provides a package containing several shell scripts to help you back up, upgrade, and/or restore your ROS Melodic robot's important data. You can use these scripts by downloading the ``robot-backup`` repository by running the following command on your computer:
 
 .. code-block:: bash
 
     git clone https://github.com/clearpathrobotics/robot-backup
 
-Follow the instructions in the ``robot-backup/README.md`` file to ensure you have all of the prerequisites installed.
+You will need to install dependencies to be able to use these scripts. The instructions for installing dependencies can be found in the ``README.md`` file of the repository, or run the following command on your computer:
+
+.. code-block:: bash
+
+  sudo apt-get install sshpass sudo apt-get install rsync
 
 Running the Backup Script
 --------------------------
@@ -22,26 +26,26 @@ Ensure that the robot is turned on and that you can SSH into it from your comput
 .. code-block:: bash
 
     cd robot-backup
-    bash backup.sh <backup-name> <hostname|IP address of the robot>
+    bash backup.sh <backup-name> <robot-hostname OR robot-ip-address>
 
-For example, if your robot's IP address is 192.168.1.103, you would run something like
+For example, if your robot's IP address is 192.168.1.103, you would run something like:
 
 .. code-block:: bash
 
     bash backup.sh melodic-final-backup 192.168.1.103
 
-This will produce a backup file called ``melodic-final-backup.tar.gz``. Keep this file for when you need to restore your backed-up data.
+This will produce a backup file called ``melodic-final-backup.tar.gz``. Keep this file for when you need to restore your backed-up data, after your have upgraded your robot's OS to Ubuntu 20.04 with ROS Noetic.
 
-By default all Clearpath robots use the username "administrator" and the password "clearpath".  The ``backup.sh`` script will use these credentials by default, but you can override them easily.
+By default all Clearpath robots use the username ``administrator`` and the password ``clearpath``.  The ``backup.sh`` script will use these credentials by default, but you can override them easily.
 
-For example, if your robot has been modified to use an Nvidia Jetston TX2, the username and password will both be "nvidia". In this case, you should run
+For example, if your robot's username and password have been set to ``my_robot_username`` and ``my_robot_password`` you should run
 
 .. code-block:: bash
 
-  bash backup.sh melodic-final-backup nvidia@192.168.1.103 nvidia
+  bash backup.sh melodic-final-backup my_robot_username@192.168.1.103 my_robot_password
 
-What Gets Backed Up
---------------------
+Backed Up Contents
+-------------------
 
 The backup script will copy the following data:
 

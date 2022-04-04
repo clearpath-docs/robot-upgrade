@@ -1,20 +1,21 @@
-# Tutorial for upgrading robots from Ubuntu 18.04 + Melodic to 20.04 + Noetic
+# robot-upgrade
 
-In early 2020 Clearpath Robotics started supporting ROS Melodic running on Ubuntu 18.04 on our line of robots.  New
-robots sold will begin shipping with ROS Melodic.  Older robots will require the user to upgrade them themselves.  This
-is a small tutorial explaining how to do that migration.
+Tutorial for upgrading robots from Ubuntu 18.04 with ROS Melodic to Ubuntu 20.04 with ROS Noetic.
 
 ## Cloning
+
 To clone this repository simply run
 
     git clone --recursive https://github.com/clearpath-docs/robot-upgrade.git
 
 ## Prerequisites
-To build this guide you must have sphinx installed via PIP:
+
+To build this guide you must have sphinx installed via `pip`:
 
     pip3 install sphinx
 
-## Buiding
+## Building
+
 To build the docs cd into the root folder of the repository and run the following commands:
 
     mkdir html
